@@ -21,7 +21,7 @@
             background-color: #000; 
         }
         header {
-            background-color: #000; /* Fundo totalmente preto */
+            background-color: #000;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -31,7 +31,7 @@
             position: relative;
         }
         header img {
-            max-width: 50%; /* Ajuste o tamanho conforme necessário */
+            max-width: 50%;
             height: auto;
             opacity: 0;
             transform: translateY(-20px);
@@ -91,36 +91,50 @@
 
     <header id="inicio">
         <img src="src/Icone.jpeg" alt="BTK Floresta Porto Alegre">
-        <!-- <a href="#inscricao" class="btn-custom">Inscreva-se</a> -->
     </header>
 
-    <section id="proxima-aula" class="section-dark" data-aos="fade-up">
-        <h2 id="status-aula">Horário das Aulas</h2>
-        <p id="proximaAula" class="display-4"></p>
-    </section>
-
     <section id="historia" class="section-light" data-aos="fade-up">
-        <h2>História do BTK</h2>
-        <p>Nem eu sei, tem só louco</p>
+	<div class="row justify-content-center">
+        <div class="col-md-4 text-start">
+  	      	    <h2>Academia de Muaythai e Boxe é BtkFloresta</h2>
+<p>A Versus Fight Club foi fundada em setembro de 2024.</p>
+<p>Contamos com professores de alto nível para treinamento de alunos recreativos e treinamento de atletas de competição.</p>
+<p> Academia de Muaythai, Academia de Boxe.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="src/fotoBtk.jpg" class="d-block w-100" alt="Imagem 2" class="img-fluid" data-aos="fade-left">
+        </div>
+</div>
     </section>
 
-    <section id="depoimentos" class="section-light" data-aos="fade-up">
-        <h2>Depoimentos de Alunos</h2>
-        <p>"Treinar na Academia Muay Thai foi uma das melhores decisões da minha vida. O ambiente é acolhedor e os instrutores são extremamente dedicados."</p>
-        <p>"Vem para BTK, Bang nao vale apena"</p>
+    <section id="historia" class="section-dark" data-aos="fade-up">
+	<h2>Treinadores</h2>
+        <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+		<h2>Thales Faller</h2>
+ <img src="src/ThalesFaller.jpg" class="d-block w-100" alt="Imagem 2" class="img-fluid" data-aos="fade-right">
+        </div>
+        <div class="col-md-4 text-center">
+<h2>Matheus Pires</h2>
+            <img src="src/MatheusPires.jpg" class="d-block w-100" alt="Imagem 2" class="img-fluid" data-aos="fade-left">
+        </div>
+</div>
     </section>
 
     <section id="galeria" class="section-dark" data-aos="zoom-in">
         <h2>Galeria de Imagens</h2>
         <div class="container">
-            <iframe src="https://www.instagram.com/btkfloresta/embed" frameborder="0" allowtransparency="true" allowfullscreen="true" style="width:100%; height: 600px;"></iframe>
+            <div class="row">
+                <div class="col-12">
+                    <iframe class="d-block w-100" src="https://www.instagram.com/btkfloresta/embed" frameborder="0" allowtransparency="true" allowfullscreen="true" style="height: 50vh;"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="inscricao" class="section-light" data-aos="fade-up">
         <h2>Inscreva-se Agora</h2>
         <p>Preencha o formulário abaixo e comece sua jornada no Muay Thai hoje mesmo!</p>
-	<p>Venha apanhar no sparring hoje mesmo!</p>
         <div class="container mt-4">
             <form>
                 <div class="row justify-content-center">
@@ -141,20 +155,28 @@
         </div>
     </section>
 
+    <section id="proxima-aula" class="section-dark" data-aos="fade-down">
+        <h2 id="status-aula">Horário das Aulas</h2>
+        <p id="proximaAula" class="display-4"></p>
+    </section>
+
     <footer class="text-center p-3 bg-dark text-white">
-    <p class="mb-1">&copy; 2025 BTK Floresta Porto Alegre.</p>
-    <p class="mb-3">Todos os direitos reservados.</p>
-    <div class="social-icons mb-3">
-        <a href="https://instagram.com/btkfloresta" target="_blank" class="me-3 d-inline text-decoration-none">
-            <i class="bi bi-instagram"></i>
-        </a>
-        <a href="https://youtube.com/@BTKFloresta" target="_blank" class="d-inline text-decoration-none">
-            <i class="bi bi-youtube"></i>
-        </a>
-    </div>
-    <img class="img-fluid mb-3" src="src/under_construction.gif" alt="Under Construction Pikachu" style="width: 10%; max-width: 50px;">
-    <p><a href="#inicio" class="text-white text-decoration-none">Voltar ao topo</a></p>
-</footer>
+        <p class="mb-1">&copy; 2025 BTK Floresta Porto Alegre.</p>
+        <p class="mb-3">Todos os direitos reservados.</p>
+        <div class="social-icons mb-3">
+            <a href="https://instagram.com/btkfloresta" target="_blank" class="me-3 d-inline text-decoration-none">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@BTKFloresta" target="_blank" class="d-inline text-decoration-none">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@btkfloresta" target="_blank" class="d-inline text-decoration-none">
+                <i class="bi bi-tiktok"></i>
+            </a>
+        </div>
+        <img class="img-fluid mb-3" src="src/under_construction.gif" alt="Under Construction Pikachu" style="width: 10%; max-width: 50px;">
+        <p><a href="#inicio" class="text-white text-decoration-none">Voltar ao topo</a></p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -169,7 +191,7 @@
                 { inicio: '10:00', fim: '11:30' },
                 { inicio: '12:30', fim: '14:00' },
                 { inicio: '14:30', fim: '16:00' },
- 		{ inicio: '16:30', fim: '18:00' },
+                { inicio: '16:30', fim: '18:00' },
                 { inicio: '18:30', fim: '20:00' },
                 { inicio: '20:30', fim: '22:00' },
                 { inicio: '22:30', fim: '00:00' }
@@ -219,7 +241,7 @@
         }
 
         setInterval(verificarHorario, 1000);
-        verificarHorario(); // Executa na inicialização
+        verificarHorario();
     </script>
 </body>
 </html>
