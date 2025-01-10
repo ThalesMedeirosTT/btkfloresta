@@ -58,7 +58,7 @@
         .btn-custom:hover {
             background-color: #c82333;
         }
-        section {
+        .section {
             padding: 100px 20px;
             text-align: center;
         }
@@ -90,7 +90,7 @@
 .btnVerde {
     margin-top: 100px;
     display: inline-block;
-    padding: 25px 150px;
+    padding: 10px 20px;
     background-color: #54fc2c; /* Cor verde neon */
     color: #000;
     font-weight: bold;
@@ -100,14 +100,13 @@
     transition: all 0.3s ease;
 }
 
-
     </style>
 </head>
 <body>
 
-   <section id="historia" data-aos="fade-up">
+   <section id="historia" data-aos="fade-up" style="color: white;" class="section">
 	<div class="row justify-content-center">
-        <div class="col-md-5 text-start" style="margin-top: 10%;">
+        <div class="col-md-4 text-start" style="margin-top: 10%;">
 
 	    <div class="logo">
 <img src="src/Icone.jpeg" style="width: 5%;"> 
@@ -119,17 +118,19 @@
             <p>Centro de treinamento de luta<br>Muaythai | Boxe | Kickboxing</p>
             <a href="#saiba-mais" class="btnVerde">SAIBA MAIS</a>
         </div>
-        <div class="col-md-4">
-            <img src="src/inicioIcone.png" class="d-block w-100" alt="Imagem 2" class="img-fluid" data-aos="fade-left">
+        <div class="col-md-5">
+            <img src="src/inicioIcone.png" class="d-block" alt="Imagem 2" class="img-fluid" data-aos="fade-left" style="filter: brightness(30%); height: 100%;width: 100%;">
         </div>
 </div>
     </section>
 
-    <header id="inicio">
-        <img src="src/Icone.jpeg" alt="BTK Floresta Porto Alegre">
-    </header>
+    <section>
 
-    <section id="historia" class="section-light" data-aos="fade-up">
+<img src="src/teste.jpg" class="d-block w-100" alt="Imagem 2" class="img-fluid" data-aos="fade-left" style="filter: brightness(30%);">
+</section>
+
+
+    <section id="historia" class="section section-light" data-aos="fade-up">
 	<div class="row justify-content-center">
         <div class="col-md-4 text-start">
   	      	    <h2>Academia de Muaythai e Boxe é Btk-Floresta</h2>
@@ -144,7 +145,7 @@
 </div>
     </section>
 
-    <section id="historia" class="section-dark" data-aos="fade-up">
+    <section id="historia" class="section section-dark" data-aos="fade-up">
 	<h2>Treinadores</h2>
         <div class="row justify-content-center">
         <div class="col-md-4 text-center">
@@ -158,7 +159,7 @@
 </div>
     </section>
 
-    <section id="galeria" class="section-light" data-aos="zoom-in">
+    <section id="galeria" class="section section-light" data-aos="zoom-in">
         <h2>Galeria de Imagens</h2>
         <div class="container">
             <div class="row">
@@ -169,7 +170,7 @@
         </div>
     </section>
 
-    <section id="inscricao" class="section-dark" data-aos="fade-down">
+    <section id="inscricao" class="section section-dark" data-aos="fade-down">
         <h2>Inscreva-se Agora</h2>
         <p>Preencha o formulário abaixo e comece sua jornada no Muay Thai hoje mesmo!</p>
         <div class="container mt-4">
@@ -192,7 +193,7 @@
         </div>
     </section>
 
-    <section id="proxima-aula" class="section-dark" data-aos="fade-down">
+    <section id="proxima-aula" class="section section-dark" data-aos="fade-down">
         <h2 id="status-aula">Horário das Aulas</h2>
         <p id="proximaAula" class="display-4"></p>
     </section>
