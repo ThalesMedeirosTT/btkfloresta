@@ -86,6 +86,12 @@
         footer .social-icons a:hover {
             color: #dc3545;
         }
+
+	.container, .row, .col, .col-md-4, .col-12 {
+    		width: 100%;
+    		overflow: hidden; /* Impede que o conteúdo ultrapasse a largura da tela */
+	}
+
     </style>
 </head>
 <body>
@@ -109,7 +115,15 @@
 </div>
     </section>
 
-    <section id="historia" class="section-dark" data-aos="fade-up">
+    <section id="horarios" class="section-dark" data-aos="fade-up">
+        <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+<img src="src/tabela.jpeg" alt="Horarios" class="d-block w-100 w-sm-50 w-md-40 w-lg-50">
+        </div>
+</div>
+    </section>
+
+    <section id="historia" class="section-light" data-aos="fade-up">
 	<h2>Treinadores</h2>
         <div class="row justify-content-center">
         <div class="col-md-4 text-center">
@@ -123,7 +137,7 @@
 </div>
     </section>
 
-    <section id="galeria" class="section-light" data-aos="zoom-in">
+    <section id="galeria" class="section-dark" data-aos="zoom-in">
         <h2>Galeria de Imagens</h2>
         <div class="container">
             <div class="row">
@@ -134,7 +148,7 @@
         </div>
     </section>
 
-    <section id="inscricao" class="section-dark" data-aos="fade-down">
+    <section id="inscricao" class="section-light" data-aos="fade-down">
         <h2>Inscreva-se Agora</h2>
         <p>Preencha o formulário abaixo e comece sua jornada no Muay Thai hoje mesmo!</p>
         <div class="container mt-4">
