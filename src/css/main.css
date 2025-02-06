@@ -1,4 +1,6 @@
+@import url("./variables.css");
 @import url("./keyframes.css");
+@import url("./buttons.css");
 
 body, html {
     margin: 0;
