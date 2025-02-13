@@ -102,8 +102,99 @@ footer {
   color: white;
 }
 
+.font-verde {
+  color: #00ff00;
+}
+
 #sobre-nos {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
     url("../assets/images/fotoInicio.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+#sessao-final {
+  background-color: black; /* Fundo preto */
+  color: white; /* Texto branco */
+  min-height: 100vh; /* Altura mínima da seção */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+    url("../assets/images/btkin.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.contact-title {
+  color: #00ff00; /* Verde neon */
+  font-weight: bold;
+  font-size: 50px; /* Tamanho da fonte */
+  text-align: left; /* Alinha o título à esquerda */
+  margin-bottom: 40px; /* Espaçamento abaixo do título */
+}
+
+.contact-info {
+  font-size: 20px; /* Tamanho da fonte das informações */
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-bottom: 20px; /* Espaçamento entre as linhas */
+  color: #00ff00; /* Verde neon */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: flex-start; /* Alinha os ícones à esquerda */
+  gap: 15px; /* Espaçamento entre os ícones */
+}
+
+.social-icons a {
+  color: #ff0080; /* Cor dos ícones (rosa) */
+  font-size: 28px; /* Tamanho dos ícones */
+  transition: 0.3s; /* Transição suave ao passar o mouse */
+}
+
+/* Estilos da Seção de Avaliações */
+#avaliacoes {
+  padding: 80px 20px;
+  background-color: #f8f9fa; /* Fundo claro */
+}
+
+#avaliacoes h2 {
+  font-size: 2.5rem;
+  color: #212529; /* Cor escura */
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #dc3545; /* Vermelho */
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#horarios {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+    url("../assets/images/placa.jpg") no-repeat center center;
   background-size: cover;
 }
