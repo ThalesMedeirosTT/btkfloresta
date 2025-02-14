@@ -194,17 +194,33 @@ footer {
 
 @media (max-width: 768px) {
   .carousel-inner {
-      flex-direction: row;
+    flex-direction: row;
   }
   .carousel-item {
-      justify-content: center;
+    justify-content: center;
   }
   .desktop-view {
-      display: none;
+    display: none;
   }
 }
 @media (min-width: 769px) {
   .mobile-view {
-      display: none;
+    display: none;
   }
+}
+
+#como-chegar h2 {
+  font-size: 60px;
+  color: #00ff00;
+  /* Verde neon */
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+#como-chegar {
+  min-height: 100vh; /* Altura mínima da seção */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+    url("../assets/images/placa.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 100px 20px;
 }
