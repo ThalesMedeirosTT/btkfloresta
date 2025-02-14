@@ -151,50 +151,62 @@ footer {
   transition: 0.3s; /* Transição suave ao passar o mouse */
 }
 
-/* Estilos da Seção de Avaliações */
-#avaliacoes {
-  padding: 80px 20px;
-  background-color: #f8f9fa; /* Fundo claro */
-}
-
-#avaliacoes h2 {
-  font-size: 2.5rem;
-  color: #212529; /* Cor escura */
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-.card {
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-  padding: 30px;
-}
-
-.card-text {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.card-title {
-  font-size: 1.2rem;
-  color: #dc3545; /* Vermelho */
-  margin-top: 20px;
-  font-weight: bold;
-}
-
 #horarios {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
     url("../assets/images/placa.jpg") no-repeat center center;
   background-size: cover;
+}
+
+.avaliacoes-section {
+  background-color: black;
+  padding: 40px 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.avaliacao-box {
+  padding: 50px;
+  border: 2px solid white;
+  border-radius: 10px;
+  text-align: justify;
+  color: white;
+  font-size: 20px;
+  min-height: 400px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.avaliacao-box strong {
+  display: block;
+  margin-top: 40px;
+  color: #00ff00;
+  font-size: 22px;
+  text-align: left;
+}
+.avaliacoes-section h2 {
+  color: #00ff00;
+  font-size: 50px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .carousel-inner {
+      display: flex;
+      flex-direction: row;
+  }
+  .carousel-item {
+      display: flex;
+      justify-content: center;
+  }
+  .desktop-view {
+      display: none;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-view {
+      display: none;
+  }
 }
