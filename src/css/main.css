@@ -219,6 +219,7 @@ footer {
 
 #como-chegar {
   min-height: 100vh; /* Altura mínima da seção */
+  max-height: 150vh;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
     url("../assets/images/placa.jpg") no-repeat center center;
   background-size: cover;
