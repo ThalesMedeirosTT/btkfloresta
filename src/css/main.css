@@ -108,7 +108,7 @@ footer {
 
 #sobre-nos {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
-    url("../assets/images/fotoInicio.jpg") no-repeat center center;
+    url("../assets/images/placa.jpg") no-repeat center center;
   background-size: cover;
 }
 
