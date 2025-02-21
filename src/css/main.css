@@ -28,6 +28,31 @@ header {
   }
 }
 
+.container,
+.row,
+.col,
+.col-md-4,
+.col-12 {
+  overflow: hidden; /* Impede que o conteúdo ultrapasse a largura da tela */
+}
+
+.section-full {
+  min-height: 100%; /* Exatamente 100% da altura da tela */
+}
+
+section {
+  padding: 100px 20px;
+  text-align: center;
+}
+.section-light {
+  background-color: #f8f9fa;
+  color: #333;
+}
+.section-dark {
+  background-color: #212529;
+  color: #fff;
+}
+
 .btn-custom {
   margin-top: 20px;
   padding: 10px 20px;
@@ -44,45 +69,18 @@ header {
     background-color: #c82333;
   }
 }
-section {
-  padding: 100px 20px;
-  text-align: center;
-}
-.section-light {
-  background-color: #f8f9fa;
-  color: #333;
-}
-.section-dark {
-  background-color: #212529;
-  color: #fff;
-}
-footer {
-  background-color: #212529;
-  color: #fff;
-  padding: 40px 20px;
-  text-align: center;
 
-  & .social-icons a {
-    margin: 0 15px;
-    color: #fff;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #dc3545;
-    }
-  }
+.font-branca {
+  color: white;
 }
 
-.container,
-.row,
-.col,
-.col-md-4,
-.col-12 {
-  overflow: hidden; /* Impede que o conteúdo ultrapasse a largura da tela */
+.font-verde {
+  color: #00ff00;
 }
 
-#sobre-nos h2 {
+#sobre-nos h2,
+#como-chegar h2,
+#treinadores h2 {
   font-size: 60px;
   color: #00ff00;
   /* Verde neon */
@@ -94,19 +92,32 @@ footer {
   font-size: 60px;
   color: #00ff00;
   /* Verde neon */
-  margin-bottom: 30px;
   font-weight: bold;
 }
 
-.font-branca {
-  color: white;
-}
-
-.font-verde {
-  color: #00ff00;
+#horarios {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+    url("../assets/images/placa.jpg") no-repeat center center;
+  background-size: cover;
 }
 
 #sobre-nos {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+    url("../assets/images/fotoInicio.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+#treinadores {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url("../assets/images/turma.jpeg") no-repeat center center;
+  background-size: cover;
+}
+
+#como-chegar {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
     url("../assets/images/placa.jpg") no-repeat center center;
   background-size: cover;
@@ -149,12 +160,6 @@ footer {
   color: #ff0080; /* Cor dos ícones (rosa) */
   font-size: 28px; /* Tamanho dos ícones */
   transition: 0.3s; /* Transição suave ao passar o mouse */
-}
-
-#horarios {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
-    url("../assets/images/placa.jpg") no-repeat center center;
-  background-size: cover;
 }
 
 .avaliacoes-section {
@@ -207,21 +212,4 @@ footer {
   .mobile-view {
     display: none;
   }
-}
-
-#como-chegar h2 {
-  font-size: 60px;
-  color: #00ff00;
-  /* Verde neon */
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-
-#como-chegar {
-  min-height: 100vh; /* Altura mínima da seção */
-  max-height: 150vh;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
-    url("../assets/images/placa.jpg") no-repeat center center;
-  background-size: cover;
-  padding: 100px 20px;
 }
