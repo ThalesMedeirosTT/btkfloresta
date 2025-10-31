@@ -4,7 +4,7 @@ session_start();
 
 $key = $_POST['key'] ?? '';
 // Keep same admin key as original
-if($key === 'admin'){
+if($key === 'Floresta@2025@Muaythai'){
     $_SESSION['is_admin'] = true;
     echo json_encode(['success'=>true]);
 } else {
