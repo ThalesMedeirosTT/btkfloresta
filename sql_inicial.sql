@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS floresta_muaythai CHARACTER SET utf8mb4 COLLATE ut
 USE floresta_muaythai;
 
 CREATE TABLE IF NOT EXISTS alunos (
-  id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+  id CHAR(36) PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
   data_nascimento DATE NOT NULL,
   celular VARCHAR(15) NOT NULL,
