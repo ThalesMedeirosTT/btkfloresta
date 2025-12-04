@@ -4,7 +4,7 @@ require '../Utils/conexao.php';
 $data = $_GET['data'] ?? date('Y-m-d');
 
 try {
-    $sql = "SELECT a.id, a.data, a.hora, a.professor, a.capacidade,
+    $sql = "SELECT a.id, a.data, a.hora, a.professor, a.capacidade, a.tipo,
     COALESCE(SUM(CASE WHEN ag.status='confirmado' THEN 1 ELSE 0 END),0) AS confirmed_count,
     COALESCE(SUM(CASE WHEN ag.status='espera' THEN 1 ELSE 0 END),0) AS wait_count
     FROM aulas a

@@ -7,7 +7,7 @@ $hora = $_POST['hora'] ?? null;
 try {
     $params = [];
 
-    $sql = "SELECT id, dia_semana, hora, professor, capacidade, criado_em FROM templates_aulas WHERE 1=1";
+    $sql = "SELECT id, dia_semana, hora, professor, capacidade, tipo, criado_em FROM templates_aulas WHERE 1=1";
     if($dia_semana != null){
         $sql .= " and dia_semana = ?";
         $params[] = $dia_semana;
@@ -23,7 +23,7 @@ try {
     
     $list = [];
     foreach($rows as $r){
-        $list[] = ['id'=>$r['id'],'dia_semana'=>$r['dia_semana'],'hora'=>$r['hora'],'professor'=>$r['professor'],'capacidade'=>$r['capacidade'],'criado_em'=>$r['criado_em']];
+        $list[] = ['id'=>$r['id'],'dia_semana'=>$r['dia_semana'],'hora'=>$r['hora'],'professor'=>$r['professor'],'capacidade'=>$r['capacidade'], 'tipo'=>$r['tipo'],'criado_em'=>$r['criado_em']];
     }
     echo json_encode(['success'=>true,'list'=>$list]);
 } catch (Exception $e){
