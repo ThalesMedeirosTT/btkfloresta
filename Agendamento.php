@@ -20,6 +20,7 @@
             --color-dark-bg: #0c0f17;
             --color-card-bg: #161a22;
             --color-waitlist: #f6ad55;
+            --color-specialclass: #e91e63;
             /* Laranja/Amarelo para Lista de Espera */
         }
 
@@ -33,7 +34,7 @@
         .class-card {
             transition: transform 0.2s, box-shadow 0.2s;
             background-color: var(--color-card-bg);
-            border-left: 5px solid var(--color-floresta);
+            border-left: 5px solid var(--color-specialclass);
             /* Verde Floresta Padrão */
             position: relative;
             /* Necessário para o ícone de agendado */
@@ -50,7 +51,7 @@
         }
 
         .btn-schedule {
-            background-color: var(--color-floresta);
+            background-color: var(--color-specialclass);
             /* Verde para agendar */
         }
 
@@ -111,8 +112,13 @@
             transition: opacity 0.3s;
         }
 
-        .z-80 { z-index: 80; }
-        .z-90 { z-index: 90; }
+        .z-80 {
+            z-index: 80;
+        }
+
+        .z-90 {
+            z-index: 90;
+        }
     </style>
 </head>
 
@@ -305,6 +311,14 @@
                 <div class="mb-6">
                     <label for="new-class-teacher" class="block text-sm font-medium text-gray-400">Professor (Kru)</label>
                     <input type="text" id="new-class-teacher" required class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-white p-3 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ex: Kru Fúria">
+                </div>
+
+                <div class="mb-6">
+                    <label for="new-class-special" class="block text-sm font-medium text-gray-400">Aula Especial</label>
+                    <select id="new-class-special" required class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-white p-3 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="N">Não</option>
+                        <option value="S">Sim</option>
+                    </select>
                 </div>
 
                 <h3 class="text-lg font-semibold text-gray-300 mb-2">Modelos Existentes:</h3>
@@ -609,6 +623,14 @@
                     cardClass += ' card-past-day';
                 }
 
+                //Tipo de aula
+                let corTipoAula = '--color-floresta';
+                switch (cls.tipo) {
+                    case 'S':
+                        corTipoAula = '--color-specialclass';
+                        break;
+                }
+
                 const bookedIcon = (isBooked || isWaitlisted) && !isCardInactive ?
                     `<svg class="icon-booked w-6 h-6 ${iconColor}" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>` :
                     '';
@@ -632,7 +654,7 @@
                 const cardHtml = `
                     <div class="${cardClass}">
                         <div>
-                            <div class="text-2xl font-extrabold mb-1 text-[--color-floresta]">${cls.hora}</div>
+                            <div class="text-2xl font-extrabold mb-1 text-[${corTipoAula}]">${cls.hora}</div>
                             <p class="text-gray-300 mb-4 font-light">${cls.data}: <span class="font-semibold">${cls.professor}</span></p>
 
                             <div class="mb-4">
@@ -847,6 +869,7 @@
             const time = document.getElementById('new-class-time').value;
             const teacher = document.getElementById('new-class-teacher').value.trim();
             const capacity = parseInt(document.getElementById('new-class-capacity').value, 10);
+            const special = document.getElementById('new-class-special').value;
             const diaId = dayNames.indexOf(day);
 
             // Feature 3: Validação de Duplicatas (apenas para criação)
@@ -860,6 +883,7 @@
                 form.append('hora', time);
                 form.append('professor', teacher);
                 form.append('capacidade', capacity);
+                form.append('tipo', special);
                 const res = await fetch('Template/salvar_template.php', {
                     method: 'POST',
                     body: form
@@ -940,6 +964,7 @@
                 form.append('hora', template.hora);
                 form.append('professor', template.professor);
                 form.append('capacidade', template.capacidade);
+                form.append('tipo', template.tipo);
                 form.append('template_id', template.id);
                 res = await fetch('Aulas/gerar_aula.php', {
                     method: 'POST',
