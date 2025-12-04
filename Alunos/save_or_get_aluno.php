@@ -10,11 +10,11 @@ if ($nome === '') {
 }
 try {
     // Check if exists
-    $stmt = $pdo->prepare("SELECT id FROM alunos WHERE celular = ? LIMIT 1");
+    $stmt = $pdo->prepare("SELECT id, nome FROM alunos WHERE celular = ? LIMIT 1");
     $stmt->execute([$celular]);
     $row = $stmt->fetch();
     if ($row) {
-        echo json_encode(['success' => true, 'aluno_id' => $row['id']]);
+        echo json_encode(['success' => true, 'aluno_id' => $row['id'], 'nome' => $row['nome']]);
         exit;
     }
 
@@ -32,7 +32,7 @@ try {
     // Insert
     $ins = $pdo->prepare("INSERT INTO alunos (id, nome, celular, data_nascimento) VALUES (?, ?, ?, ?)");
     $ins->execute([$uuid, $nome, $celular, $data]);
-    echo json_encode(['success' => true, 'aluno_id' => $pdo->lastInsertId()]);
+    echo json_encode(['success' => true, 'aluno_id' => $uuid, 'nome' => $nome]);
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }

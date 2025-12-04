@@ -34,7 +34,7 @@
         .class-card {
             transition: transform 0.2s, box-shadow 0.2s;
             background-color: var(--color-card-bg);
-            border-left: 5px solid var(--color-specialclass);
+            border-left: 5px solid var(--color-floresta);
             /* Verde Floresta Padrão */
             position: relative;
             /* Necessário para o ícone de agendado */
@@ -51,7 +51,7 @@
         }
 
         .btn-schedule {
-            background-color: var(--color-specialclass);
+            background-color: var(--color-floresta);
             /* Verde para agendar */
         }
 
@@ -580,6 +580,18 @@
                 let buttonClass;
                 let action = '';
 
+                //Tipo de aula
+                let corTipoAula = '--color-floresta';
+                let border = '';
+                let colorAgendar = 'hover:bg-[--color-secondary]';
+                switch (cls.tipo) {
+                    case 'S':
+                        corTipoAula = '--color-specialclass';
+                        border = 'border-l-[--color-specialclass]'
+                        colorAgendar = 'hover:bg-[--color-specialclass] bg-[--color-specialclass]';
+                        break;
+                }
+
                 if (isCardInactive) {
                     buttonText = 'Aula Encerrada';
                     buttonClass = 'btn-disabled';
@@ -598,7 +610,7 @@
                     action = 'waitlist';
                 } else {
                     buttonText = 'Agendar Minha Vaga';
-                    buttonClass = 'btn-schedule hover:bg-[--color-secondary]';
+                    buttonClass = `btn-schedule ${colorAgendar}`;
                     action = 'book';
                 }
 
@@ -611,7 +623,7 @@
                 }
 
                 // MELHORIA B: Borda do Cartão e Ícone
-                let cardClass = 'class-card rounded-xl p-6 shadow-xl flex flex-col justify-between';
+                let cardClass = 'class-card rounded-xl p-6 shadow-xl flex flex-col justify-between ' + border;
                 let iconColor = 'text-[--color-floresta]';
 
                 if (isWaitlisted) {
@@ -621,14 +633,6 @@
 
                 if (isCardInactive) { // Aplica estilo de inativo/passado
                     cardClass += ' card-past-day';
-                }
-
-                //Tipo de aula
-                let corTipoAula = '--color-floresta';
-                switch (cls.tipo) {
-                    case 'S':
-                        corTipoAula = '--color-specialclass';
-                        break;
                 }
 
                 const bookedIcon = (isBooked || isWaitlisted) && !isCardInactive ?
