@@ -424,7 +424,7 @@
 
         async function carregarAulas(dateKey) {
             try {
-                const res = await fetch('aulas/get_aulas.php?data=' + dateKey);
+                const res = await fetch('Aulas/get_aulas.php?data=' + dateKey);
                 const aulas = await res.json();
                 populateTeacherFilterFromAulas(aulas);
                 await renderClasses(aulas);
@@ -467,10 +467,10 @@
             if (j.success) {
                 currentStudent = {
                     id: j.aluno_id,
-                    name: name
+                    name: j.nome
                 };
                 localStorage.setItem('floresta_student', JSON.stringify(currentStudent));
-                $('user-name').textContent = name;
+                $('user-name').textContent = j.nome;
                 $('profile-modal').classList.add('hidden');
                 carregarAulas(viewingDateKey);
                 $('loading').classList.add('hidden');
@@ -633,7 +633,7 @@
                     <div class="${cardClass}">
                         <div>
                             <div class="text-2xl font-extrabold mb-1 text-[--color-floresta]">${cls.hora}</div>
-                            <p class="text-gray-300 mb-4 font-light">${cls.data} - Professor: <span class="font-semibold">${cls.professor}</span></p>
+                            <p class="text-gray-300 mb-4 font-light">${cls.data}: <span class="font-semibold">${cls.professor}</span></p>
 
                             <div class="mb-4">
                                 <span class="text-sm font-medium ${isFull ? 'text-red-400' : 'text-green-400'}">
@@ -1103,7 +1103,7 @@
         initializeDateSelector();
         restoreStudentFromStorage();
         // If no student, show profile modal
-        if (!currentStudent) {
+        if (!currentStudent || currentStudent.id == "0") {
             $('profile-modal').classList.remove('hidden');
         } else {
             carregarAulas(viewingDateKey);
