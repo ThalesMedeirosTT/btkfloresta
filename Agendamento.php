@@ -365,7 +365,7 @@
             <form id="admin-login-form">
                 <div class="mb-6">
                     <label for="admin-key-input" class="block text-sm font-medium text-gray-400">Chave Secreta</label>
-                    <input type="password" id="admin-key-input" required class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-white p-3 focus:ring-yellow-400 focus:border-yellow-400" placeholder="Digite a chave">
+                    <input type="password" id="admin-key-input" class="mt-1 block w-full rounded-lg border-gray-600 bg-gray-700 text-white p-3 focus:ring-yellow-400 focus:border-yellow-400" placeholder="Digite a chave">
                 </div>
                 <div class="flex justify-end space-x-3">
                     <button type="button" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition" onclick="document.getElementById('admin-login-modal').classList.add('hidden')">
@@ -493,12 +493,24 @@
             }
         });
 
-        function restoreStudentFromStorage() {
+        async function restoreStudentFromStorage() {
             const s = localStorage.getItem('floresta_student');
             if (s) {
                 try {
                     currentStudent = JSON.parse(s);
-                    $('user-name').textContent = currentStudent.name;
+
+                    const form = new FormData();
+                    form.append('user', currentStudent.id);
+                    const res = await fetch('Utils/user_reset.php', {
+                        method: 'POST',
+                        body: form
+                    });
+                    const j = await res.json();
+                    if (j.success) {
+                        currentStudent = null;
+                    } else {
+                        $('user-name').textContent = currentStudent.name;
+                    }
                 } catch (e) {}
             }
         }
@@ -770,25 +782,40 @@
             const key = $('admin-key-input').value.trim();
             const form = new FormData();
             form.append('key', key);
+            form.append('user', currentStudent.id);
             const res = await fetch('Utils/login_admin.php', {
                 method: 'POST',
                 body: form
             });
             const j = await res.json();
             if (j.success) {
-                isAdmin = true;
-                updateAdminControlsVisibility();
-                document.getElementById('admin-login-modal').classList.add('hidden');
-                showMessage("Sucesso", "Acesso de Professor/Admin concedido. Executando limpeza de dados...", 'info');
-
-                cleanupExpiredClasses();
-
-                document.getElementById('admin-access-btn').textContent = "Sair do Acesso Admin";
-                document.getElementById('admin-access-btn').onclick = logOutAdmin;
+                onAdminLoginSuccess();
             } else {
                 showMessage('Erro', 'Chave incorreta.');
             }
         });
+
+        function onAdminLoginSuccess() {
+            isAdmin = true;
+
+            updateAdminControlsVisibility();
+
+            document
+                .getElementById('admin-login-modal')
+                .classList.add('hidden');
+
+            showMessage(
+                "Sucesso",
+                "Acesso de Professor/Admin concedido. Executando limpeza de dados...",
+                'info'
+            );
+
+            cleanupExpiredClasses();
+
+            const adminBtn = document.getElementById('admin-access-btn');
+            adminBtn.textContent = "Sair do Acesso Admin";
+            adminBtn.onclick = logOutAdmin;
+        }
 
         async function cleanupExpiredClasses() {
             const res = await fetch('Aulas/limpar_aulas.php');
@@ -1128,16 +1155,20 @@
             renderClasses(lastReceivedClassesData);
         }
 
-        // Init
-        initializeDateSelector();
-        restoreStudentFromStorage();
-        // If no student, show profile modal
-        if (!currentStudent || currentStudent.id == "0") {
-            $('profile-modal').classList.remove('hidden');
-        } else {
-            carregarAulas(viewingDateKey);
-            $('loading').classList.add('hidden');
+        async function init() {
+            initializeDateSelector();
+            await restoreStudentFromStorage();
+
+            // If no student, show profile modal
+            if (!currentStudent || currentStudent.id == "0") {
+                $('profile-modal').classList.remove('hidden');
+            } else {
+                carregarAulas(viewingDateKey);
+                $('loading').classList.add('hidden');
+            }
         }
+
+        init();
 
         function aplicarMascaraCelular(selector) {
             const input = document.querySelector(selector);
